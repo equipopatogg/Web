@@ -12,6 +12,7 @@ const PATHS = {
   menu: 'M4 7h16M4 12h16M4 17h16',
   shield: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4',
   users: 'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 20c0-3 3-5 6-5s6 2 6 5M17 6a3 3 0 0 1 0 5M21 20c0-2.5-2-4.3-4-4.8',
+  play: 'M6 4.5v15l13-7.5z',
 };
 
 export const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
