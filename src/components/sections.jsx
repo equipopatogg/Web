@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Button, Logo, reduced } from './ui.jsx';
-import { CONTACT_EMAIL, HERO_ALT, HERO_SRC } from '../content.js';
+import { CONTACT_EMAIL, HERO_ALT, HERO_SRC, PLAY_STORE_URL } from '../content.js';
 
 export function Header() {
   return <header className="hdr"><Logo /><span className="hdr-note">El juego continúa fuera de la partida.</span></header>;
@@ -39,7 +39,11 @@ export function Hero({ onOpen }) {
         <span className="eyebrow">PACTOGG / JUEGA EN COMUNIDAD</span>
         <h1 id="h1">Tus retos entre amigos, <em>en juego.</em></h1>
         <p className="lead">Pacten, compitan y demuestren quién cumplió.</p>
-        <Button variant="primary" icon="arrow" aria-haspopup="dialog" onClick={onOpen}>Ver cómo funciona</Button>
+        <div className="hero-actions">
+          <Button variant="primary" icon="arrow" aria-haspopup="dialog" onClick={onOpen}>Ver cómo funciona</Button>
+          {PLAY_STORE_URL ? <a className="play-link" href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">Disponible en Google Play ↗</a> :
+            <span className="play-link play-link-disabled" aria-label="Enlace de Google Play pendiente">Google Play próximamente</span>}
+        </div>
         <div className="storyline" aria-label="Tres momentos: pactar, jugar y resolver">
           <span><b>01</b> Pactar</span><i /><span><b>02</b> Jugar</span><i /><span><b>03</b> Resolver</span>
         </div>

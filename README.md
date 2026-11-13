@@ -32,3 +32,13 @@ files/
 ## Requisitos para integrarlo
 
 Este directorio contiene el código fuente de la landing. Para ejecutarlo hace falta integrarlo en un proyecto React/Vite con las dependencias del equipo. No se agregaron archivos de configuración ni infraestructura para respetar el alcance actual.
+# PactoGG landing
+
+## Configuración
+
+Copia `.env.example` como `.env` y reemplaza:
+
+- `VITE_PLAY_STORE_URL`: URL oficial de la aplicación en Google Play.
+- `VITE_GA_MEASUREMENT_ID`: Measurement ID de Google Analytics 4.
+
+Analytics se carga únicamente después del consentimiento del visitante. No se deben enviar nombres, correos, identificadores de cuenta ni otros datos personales a Analytics.
