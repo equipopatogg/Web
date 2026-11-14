@@ -41,4 +41,8 @@ Copia `.env.example` como `.env` y reemplaza:
 - `VITE_PLAY_STORE_URL`: URL oficial de la aplicación en Google Play.
 - `VITE_GA_MEASUREMENT_ID`: Measurement ID de Google Analytics 4.
 
+En el despliegue de Azure, configura esos mismos nombres como variables del repositorio en GitHub:
+`Settings → Secrets and variables → Actions → Variables`.
+El valor de `VITE_GA_MEASUREMENT_ID` debe tener formato `G-XXXXXXXXXX`.
+
 Analytics se carga únicamente después del consentimiento del visitante. No se deben enviar nombres, correos, identificadores de cuenta ni otros datos personales a Analytics.
