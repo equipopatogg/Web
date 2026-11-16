@@ -22,11 +22,16 @@ jobs:
       # They are injected only during the Vite build and are not stored in the repository.
       VITE_GA_MEASUREMENT_ID: ${{ vars.VITE_GA_MEASUREMENT_ID }}
       VITE_PLAY_STORE_URL: ${{ vars.VITE_PLAY_STORE_URL }}
+      VITE_API_BASE_URL: ${{ vars.VITE_API_BASE_URL }}
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: true
           lfs: false
+      - name: Test email verification
+        run: |
+          npm ci
+          npm test
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
       - name: Get Id Token
