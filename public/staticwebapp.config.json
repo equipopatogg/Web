@@ -1,0 +1,15 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/assets/*", "/*.{css,js,png,jpg,jpeg,svg,webp,ico,woff,woff2}"]
+  },
+  "routes": [
+    {
+      "route": "/verificar-correo*",
+      "headers": {
+        "Cache-Control": "no-store",
+        "Referrer-Policy": "no-referrer"
+      }
+    }
+  ]
+}
