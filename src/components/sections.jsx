@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Button, Icon, Logo, reduced } from './ui.jsx';
-import { CONTACT_EMAIL, HERO_ALT, HERO_SRC, PLAY_STORE_URL } from '../content.js';
+import { CONTACT_EMAIL, HERO_ALT, HERO_SRC, PLAY_STORE_URL, PRIVACY_PATH } from '../content.js';
 
 export function Header() {
   return <header className="hdr"><Logo /><span className="hdr-note">El juego continúa fuera de la partida.</span></header>;
@@ -58,7 +58,7 @@ export function Hero({ onOpen }) {
 export function Footer() {
   return (
     <footer className="ftr">
-      <span className="footer-status">Proyecto en desarrollo · Sin dinero real</span>
+      <span className="footer-status">Proyecto académico · Sin dinero real · <a href={PRIVACY_PATH}>Aviso de privacidad</a> · <a href={`${PRIVACY_PATH}#eliminar-cuenta`}>Eliminar cuenta</a></span>
       <nav className="socials" aria-label="Redes y contacto">
         <span className="social-placeholder" title="Instagram próximamente" aria-label="Instagram: próximamente"><img src={`${import.meta.env.BASE_URL}assets/instagram.svg`} alt="" /></span>
         <span className="social-placeholder" title="TikTok próximamente" aria-label="TikTok: próximamente"><img src={`${import.meta.env.BASE_URL}assets/tiktok.svg`} alt="" /></span>
