@@ -122,3 +122,14 @@ h1 em{color:var(--orange);font-style:normal}
 @media(max-width:400px){.socials{gap:7px}.socials a{font-size:.68rem}.scene-tabs{gap:4px}.scene-tabs button{font-size:.73rem}.scene-tabs svg{width:15px;height:15px;flex:none}.mb{padding:12px}.scene-versus{gap:5px;font-size:.57rem}.scene-versus span{padding:9px 5px}.scene-art{min-height:125px;padding:10px}}
 @media(max-width:400px) and (max-height:650px){.copy{padding-top:4px;padding-bottom:4px;gap:4px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.hero-photo{transform:none!important}}
+
+/* Aviso de privacidad (/privacidad) */
+.privacy { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; line-height: 1.6; }
+.privacy h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0 0 4px; }
+.privacy h2 { font-size: 1.15rem; margin: 28px 0 8px; }
+.privacy ul, .privacy ol { padding-left: 20px; }
+.privacy li { margin: 6px 0; }
+.privacy a, .footer-status a { color: inherit; text-decoration: underline; }
+.privacy-meta { opacity: .75; margin: 0 0 16px; }
+.privacy-toc { margin: 16px 0 8px; }
+.privacy-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }

@@ -1,48 +1,56 @@
 # PactoGG — Landing page
 
-Landing responsive de PactoGG construida con React y componentes reutilizables.
+Landing de PactoGG en **React 19 + Vite 8**, publicada en **Azure Static Web Apps**:
+https://black-river-065cb1710.6.azurestaticapps.net
+
+| Ruta | Qué muestra |
+|---|---|
+| `/` | Presentación, "Ver cómo funciona" y botón a Google Play (`com.pactogg.app`) |
+| `/privacidad` | Aviso de privacidad y manejo de datos (versión 2026-10-01). La app lo abre desde `BuildConfig.PRIVACY_URL` |
+| `/privacidad#eliminar-cuenta` | Cómo eliminar la cuenta y los datos |
+| `/verificar-correo?token=…` | Verificación del correo de la cuenta (llama a `POST /api/v1/auth/verify-email`) |
 
 ## Estructura
 
 ```text
-files/
-├── public/
-│   └── assets/
-│       └── tournament-hero.png
-├── src/
-│   ├── components/
-│   │   ├── panels.jsx       # Contenido de modales y demos
-│   │   ├── sections.jsx     # Header, hero, accesos y footer
-│   │   └── ui.jsx           # Botones, iconos, badges y componentes base
-│   ├── App.jsx              # Composición principal y estado de modales
-│   ├── content.js           # Contenido editable y datos de ejemplo
-│   └── styles.css           # Tokens visuales, responsive y accesibilidad
-└── README.md
+src/
+├── App.jsx                # Landing y aviso de consentimiento de Analytics
+├── main.jsx               # Elige la página según la ruta
+├── content.js             # URL de Play, Measurement ID de GA4, correo y ruta del aviso
+├── components/            # Header, hero, footer, panel "cómo funciona" y UI base
+├── privacy/               # Aviso de privacidad (content.js) y su página (Privacy.jsx)
+└── verification/          # Página de verificación de correo
+public/                    # Imágenes, favicon, robots.txt, sitemap.xml y staticwebapp.config.json
+tests/                     # Pruebas con node:test (npm test)
+specs/001-landing/         # Spec, plan y tareas (SDD)
 ```
-
-## Notas de producto
-
-- La imagen del torneo está en `public/assets/tournament-hero.png`.
-- Los datos visualizados son de ejemplo.
-- Los puntos son virtuales y no tienen valor monetario.
-- La evidencia admite foto o enlace permitido; no se contempla subida de video.
-- La IA propone estructuras, pero la persona revisa y edita antes de publicar.
-- El correo de contacto configurado es `equipopatogg@gmail.com`.
-
-## Requisitos para integrarlo
-
-Este directorio contiene el código fuente de la landing. Para ejecutarlo hace falta integrarlo en un proyecto React/Vite con las dependencias del equipo. No se agregaron archivos de configuración ni infraestructura para respetar el alcance actual.
-# PactoGG landing
 
 ## Configuración
 
-Copia `.env.example` como `.env` y reemplaza:
+Variables de GitHub Actions (`Settings → Secrets and variables → Actions → Variables`), se inyectan solo al compilar:
 
-- `VITE_PLAY_STORE_URL`: URL oficial de la aplicación en Google Play.
-- `VITE_GA_MEASUREMENT_ID`: Measurement ID de Google Analytics 4.
+- `VITE_GA_MEASUREMENT_ID`: Measurement ID de GA4 (`G-XXXXXXXXXX`) de la propiedad creada con `equipopatogg@gmail.com`.
+- `VITE_PLAY_STORE_URL` (opcional): por defecto `https://play.google.com/store/apps/details?id=com.pactogg.app`.
+- `VITE_API_BASE_URL`: URL HTTPS del backend para la verificación de correo.
 
-En el despliegue de Azure, configura esos mismos nombres como variables del repositorio en GitHub:
-`Settings → Secrets and variables → Actions → Variables`.
-El valor de `VITE_GA_MEASUREMENT_ID` debe tener formato `G-XXXXXXXXXX`.
+Analytics se carga **solo** después de que el visitante acepta; no se envían nombres, correos ni identificadores de cuenta.
 
-Analytics se carga únicamente después del consentimiento del visitante. No se deben enviar nombres, correos, identificadores de cuenta ni otros datos personales a Analytics.
+## Comandos
+
+```bash
+npm ci
+npm test        # pruebas (node:test)
+npm run build   # genera dist/
+```
+
+## CI/CD
+
+`.github/workflows/azure-static-web-apps-*.yml`: en cada push a `main` corre `npm ci && npm test` y despliega `dist/` a Azure Static Web Apps; en los PR crea un entorno de vista previa.
+
+## Seguridad
+
+`public/staticwebapp.config.json` aplica a todo el sitio CSP, HSTS, `X-Frame-Options: DENY`, `nosniff`, `Referrer-Policy` y `Permissions-Policy`. La verificación de correo usa solo HTTPS, `credentials: 'omit'`, `no-referrer` y no guarda el token en el historial.
+
+## Versiones
+
+Versión semántica en `package.json` (ver `CHANGELOG.md`) y dependencias fijadas a versión exacta con `package-lock.json`.
