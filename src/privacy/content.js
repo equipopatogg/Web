@@ -43,6 +43,8 @@ export const PRIVACY = {
         "**MongoDB Atlas:** base de datos de la app.",
         "**Google:** Firebase Cloud Messaging para notificaciones, acceso con Google y envío de correos (verificación y recuperación de contraseña).",
         "**Groq:** convierte el texto de la frase dictada en un borrador de reto. Solo recibe ese texto y los apodos del grupo.",
+        "**Google Gemini (Firebase AI Logic):** en Explorar, \"Ideas con IA\" propone retos. Solo recibe el nombre del juego que escribes.",
+        "**ML Kit (en tu teléfono):** al reportar un resultado de torneo, lee el marcador de la foto dentro del teléfono; esa lectura no envía la foto a ningún servicio.",
         "**Microsoft Azure Static Web Apps:** aloja las páginas web de PactoGG (verificación de correo y este aviso).",
         "Algunos de estos proveedores están fuera de México; al usar la app aceptas esa transferencia para las finalidades descritas. No compartimos tus datos con nadie más, salvo que una autoridad lo requiera conforme a la ley."
       ]
