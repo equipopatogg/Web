@@ -50,7 +50,7 @@ export default function App() {
       <Header />
       <main id="main"><Hero onOpen={show} /></main>
       <Footer />
-      {open && <Modal title="PactoGG en tres momentos" eyebrow="Vista conceptual" onClose={close}><ExplorePanel /></Modal>}
+      {open && <Modal title="PactoGG en tres momentos" eyebrow="FLUJO PACTOGG" onClose={close}><ExplorePanel /></Modal>}
       <AnalyticsConsent />
     </div>
   );

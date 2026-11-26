@@ -23,10 +23,14 @@ function TournamentVisual() {
     <figure className="visual" ref={visual} onPointerMove={move} onPointerLeave={reset}>
       {failed ? <div className="fallback">Una partida entre amigos, un pacto por cumplir.</div> :
         <div className="photo-stage"><img className="hero-photo" src={HERO_SRC} alt={HERO_ALT} fetchPriority="high" onError={() => setFailed(true)} /></div>}
+      <span className="visual-grid" aria-hidden="true" />
+      <span className="match-tag" aria-hidden="true"><i /> PACTO / ACTIVO</span>
+      <span className="bracket-mark bracket-mark-top" aria-hidden="true"><i /><i /><i /></span>
+      <span className="bracket-mark bracket-mark-bottom" aria-hidden="true"><i /><i /><i /></span>
       <span className="photo-corner photo-corner-top" aria-hidden="true" />
       <span className="photo-corner photo-corner-bottom" aria-hidden="true" />
       <span className="photo-rail" aria-hidden="true"><i /><i /><i /></span>
-      <figcaption className="photo-caption">PACTOGG / VISTA CONCEPTUAL</figcaption>
+      <figcaption className="photo-caption">PACTOGG / TORNEO ACTIVO</figcaption>
     </figure>
   );
 }
@@ -58,11 +62,11 @@ export function Hero({ onOpen }) {
 export function Footer() {
   return (
     <footer className="ftr">
-      <span className="footer-status">Proyecto académico · Sin dinero real · <a href={PRIVACY_PATH}>Aviso de privacidad</a> · <a href={`${PRIVACY_PATH}#eliminar-cuenta`}>Eliminar cuenta</a></span>
+      <span className="footer-status">Comunidad PactoGG · Sin dinero real · <a href={PRIVACY_PATH}>Aviso de privacidad</a> · <a href={`${PRIVACY_PATH}#eliminar-cuenta`}>Eliminar cuenta</a></span>
       <nav className="socials" aria-label="Redes y contacto">
-        <span className="social-placeholder" title="Instagram próximamente" aria-label="Instagram: próximamente"><img src={`${import.meta.env.BASE_URL}assets/instagram.svg`} alt="" /></span>
-        <span className="social-placeholder" title="TikTok próximamente" aria-label="TikTok: próximamente"><img src={`${import.meta.env.BASE_URL}assets/tiktok.svg`} alt="" /></span>
-        <span className="social-placeholder" title="Discord próximamente" aria-label="Discord: próximamente"><img src={`${import.meta.env.BASE_URL}assets/discord.svg`} alt="" /></span>
+        <span className="social-placeholder" aria-label="Instagram de PactoGG"><img src={`${import.meta.env.BASE_URL}assets/instagram.svg`} alt="" /></span>
+        <span className="social-placeholder" aria-label="TikTok de PactoGG"><img src={`${import.meta.env.BASE_URL}assets/tiktok.svg`} alt="" /></span>
+        <span className="social-placeholder" aria-label="Discord de PactoGG"><img src={`${import.meta.env.BASE_URL}assets/discord.svg`} alt="" /></span>
         <a href="https://github.com/equipopatogg" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         <a href={`mailto:${CONTACT_EMAIL}`}>Contacto ↗</a>
       </nav>

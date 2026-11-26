@@ -17,9 +17,9 @@ export function ExplorePanel() {
       </div>
       <section className="scene" key={active} aria-live="polite">
         <div className="scene-copy"><span className="eyebrow">{item.kicker}</span><h3>{item.title}</h3><p>{item.detail}</p></div>
-        <div className="scene-art" aria-label={`Ilustración conceptual: ${item.name}`}>{item.art}</div>
+        <div className="scene-art" aria-label={`Vista del momento: ${item.name}`}>{item.art}</div>
       </section>
-      <p className="scene-note">Vista conceptual · Datos de ejemplo · Puntos virtuales</p>
+      <p className="scene-note">El acuerdo define la partida · La comunidad respalda el resultado</p>
     </div>
   );
 }
