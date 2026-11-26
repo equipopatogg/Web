@@ -16,6 +16,8 @@ Bitácora de decisiones de la landing (SDD). Se actualiza en cada cambio.
 | W-D4 | Aviso de privacidad en `/privacidad` con la misma fuente que la app y el documento Word; la app lo abre desde `BuildConfig.PRIVACY_URL` | 2026-11-19 |
 | W-D5 | Botón de Google Play con la ficha `com.pactogg.app` por defecto | 2026-11-19 |
 | W-D6 | Cabeceras de seguridad globales y dependencias con versión exacta | 2026-11-19 |
+| W-D7 | Service worker propio (sin Workbox, sin dependencias nuevas): caché primero para recursos con huella y red primero para páginas; versión en `VERSION` para invalidar | 2026-11-26 |
+| W-D8 | `npm audit` (alto/crítico rompe) y CodeQL como SAST de la landing | 2026-11-26 |
 
 ## Pendiente
 - Measurement ID real de GA4 en las variables del repositorio (T8).

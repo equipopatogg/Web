@@ -20,7 +20,7 @@ src/
 ├── components/            # Header, hero, footer, panel "cómo funciona" y UI base
 ├── privacy/               # Aviso de privacidad (content.js) y su página (Privacy.jsx)
 └── verification/          # Página de verificación de correo
-public/                    # Imágenes, favicon, robots.txt, sitemap.xml y staticwebapp.config.json
+public/                    # Imágenes, favicon, sw.js, manifest, robots.txt, sitemap.xml y staticwebapp.config.json
 tests/                     # Pruebas con node:test (npm test)
 specs/001-landing/         # Spec, plan y tareas (SDD)
 ```
@@ -54,3 +54,12 @@ npm run build   # genera dist/
 ## Versiones
 
 Versión semántica en `package.json` (ver `CHANGELOG.md`) y dependencias fijadas a versión exacta con `package-lock.json`.
+
+## Caché a nivel frontend
+
+- `public/sw.js` (service worker, solo en la compilación publicada): JS/CSS con huella e imágenes salen primero de la caché; las páginas van primero a la red y, sin conexión, se muestra la última copia de inicio y `/privacidad`. Nunca guarda `/verificar-correo`, la API ni Google Analytics. Para invalidar, se sube `VERSION`.
+- `staticwebapp.config.json`: `sw.js` con `no-cache`, `/assets/*` con `max-age` de 7 días, `/privacidad` 1 hora y `/verificar-correo` `no-store`.
+
+## Seguridad en CI
+
+`.github/workflows/security.yml`: `npm audit --audit-level=high` (rompe con vulnerabilidades altas o críticas), pruebas, compilación y CodeQL (SAST de JavaScript) en cada PR, en `main` y cada lunes.
