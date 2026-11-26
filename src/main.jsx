@@ -5,6 +5,7 @@ import Privacy from './privacy/Privacy.jsx';
 import { PRIVACY_PATH } from './content.js';
 import VerifyEmail from './verification/VerifyEmail.jsx';
 import { readVerificationLink } from './verification/api.js';
+import { registerServiceWorker } from './registerServiceWorker.js';
 
 const verification = readVerificationLink(window.location, window.history);
 const privacy = window.location.pathname.replace(/\/+$/, '') === PRIVACY_PATH;
@@ -14,3 +15,5 @@ createRoot(document.getElementById('root')).render(
     {verification ? <VerifyEmail initial={verification} /> : privacy ? <Privacy /> : <App />}
   </StrictMode>,
 );
+
+registerServiceWorker();

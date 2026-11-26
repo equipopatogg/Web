@@ -8,3 +8,6 @@
 - [x] T6 Versiones exactas, favicon, robots y sitemap (LP-AC7)
 - [x] T7 Pruebas `tests/landing.test.js`
 - [ ] T8 Cargar `VITE_GA_MEASUREMENT_ID` real en las variables del repositorio y comprobar la visita en GA4 en tiempo real
+- [x] T9 Service worker, cabeceras de caché y manifiesto (`tests/cache.test.js`)
+- [x] T10 Favicon igual al escudo del encabezado
+- [x] T11 `npm audit` y CodeQL en `.github/workflows/security.yml`
