@@ -3,9 +3,10 @@
 Bitácora de decisiones de la landing (SDD). Se actualiza en cada cambio.
 
 ## Estado
-- Versión 1.0.0, desplegada en Azure Static Web Apps (`black-river-065cb1710`).
+- Versión 1.1.1 (2026-11-27), desplegada en Azure Static Web Apps (`black-river-065cb1710`). GA4 `G-JZR6RB7KX8` activo tras consentimiento.
 - Specs: `specs/001-landing` (spec, plan y tareas).
-- Pruebas: `npm test` (verificación de correo + landing).
+- Pruebas: `npm test` (verificación de correo, landing y caché: 21 pruebas).
+- Pendiente externo: la ficha `com.pactogg.app` en Google Play responde 404 hasta que la app salga de prueba cerrada; el botón ya apunta a esa URL.
 
 ## Decisiones
 | ID | Decisión | Fecha |
