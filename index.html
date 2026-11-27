@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0B1020" />
     <meta name="description" content="PactoGG conecta jugadores para crear retos y torneos con evidencia, comunidad y decisiones transparentes." />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://black-river-065cb1710.6.azurestaticapps.net/" />
+    <link rel="alternate" hreflang="es-MX" href="https://black-river-065cb1710.6.azurestaticapps.net/" />
+    <link rel="alternate" hreflang="x-default" href="https://black-river-065cb1710.6.azurestaticapps.net/" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="PactoGG" />
@@ -35,13 +38,37 @@
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" }
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PactoGG",
+        "url": "https://black-river-065cb1710.6.azurestaticapps.net/",
+        "inLanguage": "es-MX",
+        "description": "PactoGG conecta jugadores para crear retos y torneos con evidencia, comunidad y decisiones transparentes."
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="privacy-policy" href="/privacidad" />
     <title>PactoGG — Tus retos entre amigos, en juego</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Contenido inicial legible antes de que React tome control; coincide con la landing. -->
+      <main>
+        <header><p>PactoGG</p></header>
+        <section>
+          <h1>Tus retos entre amigos, en juego</h1>
+          <p>Organiza retos y torneos con evidencia, comunidad y decisiones transparentes.</p>
+          <p>PactoGG está disponible para Android.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.pactogg.app">Ver PactoGG en Google Play</a>
+        </section>
+        <nav aria-label="Información de PactoGG">
+          <a href="/privacidad">Aviso de privacidad</a>
+        </nav>
+      </main>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

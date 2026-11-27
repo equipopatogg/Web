@@ -57,10 +57,20 @@ test('SEO básico: idioma, descripción, favicon, robots y sitemap con el aviso'
   const html = read('index.html');
   assert.match(html, /<html lang="es">/);
   assert.match(html, /name="description"/);
+  assert.match(html, /name="googlebot" content="index, follow/);
+  assert.match(html, /rel="canonical" href="https:\/\/black-river-065cb1710\.6\.azurestaticapps\.net\//);
+  assert.match(html, /<h1>Tus retos entre amigos, en juego<\/h1>/);
+  assert.match(html, /WebSite/);
   assert.match(html, /rel="icon"/);
   assert.match(html, /rel="privacy-policy" href="\/privacidad"/);
-  assert.match(read('public/robots.txt'), /Sitemap:/);
-  assert.match(read('public/sitemap.xml'), /\/privacidad<\/loc>/);
+  const robots = read('public/robots.txt');
+  const sitemap = read('public/sitemap.xml');
+  assert.match(robots, /Allow: \//);
+  assert.doesNotMatch(robots, /Disallow: \/$/m);
+  assert.match(robots, /Sitemap: https:\/\/black-river-065cb1710\.6\.azurestaticapps\.net\/sitemap\.xml/);
+  assert.match(sitemap, /<lastmod>2026-11-27<\/lastmod>/);
+  assert.match(sitemap, /\/privacidad<\/loc>/);
+  assert.equal(config.globalHeaders['X-Robots-Tag'].startsWith('index, follow'), true);
 });
 
 test('dependencias fijadas a una versión exacta (sin "latest")', () => {
