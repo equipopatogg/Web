@@ -12,6 +12,8 @@
 | LP-AC5 | Todo el sitio responde con CSP, HSTS, X-Frame-Options, nosniff y Permissions-Policy | `landing.test.js` — cabeceras |
 | LP-AC6 | `/verificar-correo` verifica el token sin cookies ni referrer y no lo deja en el historial | `verification.test.js` |
 | LP-AC7 | Dependencias con versión exacta y versión semántica en `package.json` | `landing.test.js` — versiones |
+| LP-AC8 | Caché frontend: service worker (recursos primero de caché, páginas primero de red, sin conexión muestra inicio y `/privacidad`), cabeceras de caché y manifiesto | `cache.test.js` |
+| LP-AC9 | Seguridad en CI: `npm audit --audit-level=high` y CodeQL en cada PR y en `main` | `.github/workflows/security.yml` |
 
 ## Fuera de alcance
 Cuentas de usuario en la web, formularios y cualquier dato personal.

@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Button, Icon, Logo, reduced } from './ui.jsx';
-import { CONTACT_EMAIL, HERO_ALT, HERO_SRC, PLAY_STORE_URL, PRIVACY_PATH } from '../content.js';
+import { CONTACT_EMAIL, HERO_ALT, HERO_SRC, PLAY_STORE_URL, PLAY_TESTING_URL, PRIVACY_PATH } from '../content.js';
 
 export function Header() {
   return <header className="hdr"><Logo /><span className="hdr-note">El juego continúa fuera de la partida.</span></header>;
@@ -51,6 +51,7 @@ export function Hero({ onOpen }) {
             <span className="play-mark"><Icon name="play" /></span><span><small>PRÓXIMAMENTE EN</small>Google Play</span>
           </span>}
         </div>
+        <p className="tester-note">¿Eres tester? <a href={PLAY_TESTING_URL} target="_blank" rel="noopener noreferrer">Únete a la prueba en Google Play</a> con tu cuenta de Google.</p>
         <div className="storyline" aria-label="Tres momentos: pactar, jugar y resolver">
           <span><b>01</b> Pactar</span><i /><span><b>02</b> Jugar</span><i /><span><b>03</b> Resolver</span>
         </div>

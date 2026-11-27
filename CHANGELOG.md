@@ -2,6 +2,10 @@
 
 Formato: versión semántica (mayor.menor.parche). Cada despliegue a `main` publica la versión de `package.json`.
 
+## 1.1.1 — 2026-11-27
+- Liga para testers de la prueba cerrada de Google Play (`/apps/testing/com.pactogg.app`) mientras la ficha pública da 404.
+- Documentación sincronizada: GA4 `G-JZR6RB7KX8` en `.env.example`, README, T8 cerrada, Memoria en 1.1.x y criterios LP-AC8/LP-AC9 (caché y seguridad en CI).
+
 ## 1.1.0 — 2026-11-26
 - Caché a nivel frontend: service worker (`public/sw.js`) con caché primero para JS/CSS/imágenes, red primero para páginas y copia sin conexión de inicio y `/privacidad`; nunca guarda `/verificar-correo` ni la API.
 - Cabeceras de caché por tipo de recurso en Azure (`sw.js` sin caché, `/assets/*` 7 días) y CSP con `worker-src`/`manifest-src`.

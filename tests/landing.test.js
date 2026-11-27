@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { PLAY_STORE_URL, PRIVACY_PATH, CONTACT_EMAIL } from '../src/content.js';
+import { PLAY_STORE_URL, PLAY_TESTING_URL, PRIVACY_PATH, CONTACT_EMAIL } from '../src/content.js';
 import { PRIVACY } from '../src/privacy/content.js';
 
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
@@ -79,4 +79,11 @@ test('dependencias fijadas a una versión exacta (sin "latest")', () => {
     assert.match(version, /^\d+\.\d+\.\d+$/, `${name} debe tener versión exacta`);
   }
   assert.match(pkg.version, /^\d+\.\d+\.\d+$/);
+});
+
+test('mientras la app está en prueba cerrada, la landing ofrece la liga de testers del mismo paquete', () => {
+  const store = new URL(PLAY_STORE_URL);
+  const testing = new URL(PLAY_TESTING_URL);
+  assert.equal(testing.hostname, 'play.google.com');
+  assert.equal(testing.pathname, `/apps/testing/${store.searchParams.get('id')}`);
 });

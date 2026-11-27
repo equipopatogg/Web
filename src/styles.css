@@ -139,3 +139,4 @@ h1 em{color:var(--orange);font-style:normal}
 .privacy-meta { opacity: .75; margin: 0 0 16px; }
 .privacy-toc { margin: 16px 0 8px; }
 .privacy-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
+.tester-note{margin:10px 0 0;font-size:.8rem;color:var(--text2)}.tester-note a{color:var(--cyan)}

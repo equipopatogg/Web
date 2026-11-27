@@ -29,7 +29,7 @@ specs/001-landing/         # Spec, plan y tareas (SDD)
 
 Variables de GitHub Actions (`Settings → Secrets and variables → Actions → Variables`), se inyectan solo al compilar:
 
-- `VITE_GA_MEASUREMENT_ID`: Measurement ID de GA4 (`G-XXXXXXXXXX`) de la propiedad creada con `equipopatogg@gmail.com`.
+- `VITE_GA_MEASUREMENT_ID`: Measurement ID de GA4 de la propiedad creada con `equipopatogg@gmail.com`. Configurado como variable del repositorio: `G-JZR6RB7KX8` (el ID es público; viaja en el JavaScript publicado).
 - `VITE_PLAY_STORE_URL` (opcional): por defecto `https://play.google.com/store/apps/details?id=com.pactogg.app`.
 - `VITE_API_BASE_URL`: URL HTTPS del backend para la verificación de correo.
 
