@@ -11,7 +11,9 @@ on:
 
 jobs:
   build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    # Solo se publica al fusionar en main. Los PR ya se prueban y compilan en security.yml; las vistas previas
+    # por PR llenaban el límite de entornos de prueba del plan gratuito de Azure ("maximum number of staging environments").
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     permissions:
@@ -65,4 +67,7 @@ jobs:
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
+          # Sin el token el cierre no borraba la vista previa del PR en Azure.
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_RIVER_065CB1710 }}
           action: "close"
+          app_location: "/"
